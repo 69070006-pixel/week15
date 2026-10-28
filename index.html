@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOODPICKER ITF | สุ่มอาหารวันนี้กินอะไรดี</title>
+  <meta name="description" content="เว็บไซต์สุ่มอาหาร ช่วยตัดสินใจว่าวันนี้จะกินอะไร พร้อมรูปเมนู ชื่อเมนู คำอธิบาย และราคา">
+  <meta name="theme-color" content="#1b5fd0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231b5fd0'/%3E%3Ctext x='50' y='70' font-size='56' text-anchor='middle'%3E%F0%9F%8D%9C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="decor" aria-hidden="true">
+    <span class="decor__shape decor__shape--circle"></span>
+    <span class="decor__shape decor__shape--ring"></span>
+    <span class="decor__shape decor__shape--triangle"></span>
+  </div>
+
+  <header class="topbar">
+    <nav class="topbar__inner" aria-label="แถบนำทางหลัก">
+      <!-- แก้ไขรหัสนักศึกษา / สัปดาห์ได้ที่นี่ -->
+      <span class="topbar__meta topbar__meta--start">69070006</span>
+      <a class="brand" href="#top">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 11h18l-1.5 8.5a2 2 0 0 1-2 1.5H6.5a2 2 0 0 1-2-1.5L3 11Z"></path>
+            <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+          </svg>
+        </span>
+        <span class="brand__text">FOODPICKER ITF</span>
+      </a>
+      <span class="topbar__meta topbar__meta--end">Week 15</span>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">Random Food Picker</p>
+      <h1 class="hero__title">ไม่รู้จะกินอะไรดี?<br>ให้เรา<span class="highlight">สุ่ม</span>ให้!</h1>
+      <p class="hero__lead">
+        กดปุ่มสีส้มแล้วระบบจะสุ่มเมนูอาหารให้หนึ่งรายการ
+        พร้อมรูปภาพ ชื่อเมนู คำอธิบาย และราคา
+      </p>
+    </section>
+
+    <section class="picker" aria-label="ผลการสุ่มเมนูอาหาร">
+      <article class="result-card" id="resultCard">
+        <div class="result-card__media">
+          <img id="foodImage" class="result-card__image" src="images/padthai.jpg"
+               alt="ผัดไทยกุ้งสด" width="960" height="960" decoding="async">
+          <span class="result-card__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            เมนูที่สุ่มได้
+          </span>
+        </div>
+
+        <div class="result-card__body">
+          <p class="result-card__label" id="foodTag">อาหารจานเดียว</p>
+          <h2 class="result-card__name" id="foodName">ผัดไทยกุ้งสด</h2>
+          <p class="result-card__desc" id="foodDesc">
+            เส้นจันท์ผัดซอสมะขามเปียก หอมกลิ่นกระเทียมเจียว เสิร์ฟพร้อมกุ้งสดตัวโต
+            ถั่วงอก ถั่วลิสงป่น และมะนาวให้บีบเพิ่มความเปรี้ยว
+          </p>
+
+          <div class="result-card__foot">
+            <p class="price">
+              <span class="price__label">ราคา</span>
+              <span class="price__value" id="foodPrice">฿65</span>
+            </p>
+            <button class="btn-roll" id="rollBtn" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 3h5v5"></path>
+                <path d="M3 20 21 3"></path>
+                <path d="M21 16v5h-5"></path>
+                <path d="M15 15l6 6"></path>
+                <path d="M3 4l6 6"></path>
+              </svg>
+              <span id="rollBtnText">สุ่มอาหารเลย</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <p class="hint">
+        กด <kbd>Space</kbd> เพื่อสุ่มอีกครั้ง ·
+        <span id="rollCount" aria-live="polite">สุ่มแล้ว 0 ครั้ง</span>
+      </p>
+    </section>
+
+    <section class="menu" aria-labelledby="menuTitle">
+      <div class="menu__head">
+        <h2 id="menuTitle">รายการอาหารทั้งหมด</h2>
+        <span class="pill" id="menuCount">6 รายการ</span>
+      </div>
+      <p class="menu__sub">อยากกินเมนูไหนเป็นพิเศษ? กดที่การ์ดเพื่อเลือกเมนูนั้นได้เลย</p>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>FOODPICKER ITF · Assignment: ทำเว็บไซต์สุ่มอาหาร</p>
+    <p class="footer__credit">รูปภาพประกอบจาก Wikimedia Commons (CC BY-SA)</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
